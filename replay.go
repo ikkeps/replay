@@ -17,8 +17,8 @@ type Record struct {
 	Line string
 }
 
-func reader(r io.Reader, lines chan<- Record) {
-	defer close(lines)
+func reader(r io.Reader, out chan<- Record) {
+	defer close(out)
 	buf := bufio.NewReader(r)
 	for {
 		line, err := buf.ReadString('\n')
@@ -33,7 +33,7 @@ func reader(r io.Reader, lines chan<- Record) {
 		if err != nil {
 			return
 		}
-		lines <- Record{
+		out <- Record{
 			Time: ts,
 			Line: line,
 		}
