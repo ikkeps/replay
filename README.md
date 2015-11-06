@@ -9,3 +9,7 @@ go install github.com/ikkeps/replay
 ## Usage
 
 replay file1.log file2.log ...
+
+## Result
+
+![](screen.png?raw=true "screenshot")
